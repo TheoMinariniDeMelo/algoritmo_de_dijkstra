@@ -11,20 +11,26 @@ public class Cli {
     protected Map<String, Integer> cidades = new HashMap<>();
 
     public Cli() {
-        System.out.println("Numero de cidades:");
+        System.out.printf("Number of city's:");
         int citiesQuantity = scanner.nextInt();
         setScanner(citiesQuantity);
     }
 
     public void setScanner(int citiesQuantity) {
         for (int inx = 0; inx < citiesQuantity; inx++) {
-            System.out.printf("adicionar cidade e cidades para grafo %d%n", ++inx);
+            int state = inx + 1;
+            System.out.printf("%n add city %d: ", (state));
             try {
-                cidades.put(scanner.next(), scanner.nextInt());
+                String citie = scanner.next();
+                System.out.printf("%n Add number of vertices ");
+                Integer vertice =scanner.nextInt();
+                cidades.put(citie, vertice );
                 System.out.printf("%n%s%n", Status.PROCESSING);
             } catch (Error error) {
                 System.out.printf("%n%s%n", Status.ERROR);
+                break;
             }
         }
+        System.out.println(Status.ADDED);
     }
 }
