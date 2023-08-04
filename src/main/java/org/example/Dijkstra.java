@@ -7,12 +7,13 @@ import java.util.Map;
 
 import org.example.cities.City;
 import org.example.vertice.Vertice;
+import org.jetbrains.annotations.NotNull;
 
 public class Dijkstra {
 
     //protected City cidade = new City();
-   private final List<City> cities = new ArrayList<>();
-   private final Vertice vertice = new Vertice();
+   private final @NotNull List<City> cities = new ArrayList<>();
+   private final @NotNull Vertice vertice = new Vertice();
    private City city;
     public List<City> getCity() {
         return cities;

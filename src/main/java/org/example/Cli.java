@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.enums.Status;
 import org.example.services.ValidateCoordinates;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -9,8 +10,7 @@ public class Cli {
     private final Scanner scanner = new Scanner(System.in);
     private final Dijkstra dijkstra = new Dijkstra();
     private final ValidateCoordinates validateCoordinates = new ValidateCoordinates();
-
-    private final Map<String, Integer> cities = new HashMap<>();
+    private final @NotNull Map<String, Integer> cities = new HashMap<>();
 
     public Cli() {
         System.out.print("Number of city's:");
