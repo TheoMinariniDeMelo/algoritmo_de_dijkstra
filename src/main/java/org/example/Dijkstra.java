@@ -1,9 +1,9 @@
 package org.example;
 
-import org.example.cidades.City;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.example.cities.City;
 
 public class Dijkstra {
 

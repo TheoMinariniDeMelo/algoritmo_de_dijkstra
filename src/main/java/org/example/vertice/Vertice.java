@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vertice {
-    public void selectVertice(double[] citieCord, List<String> value) {
-        List<Double[]> coordinates = parseCordenadas(value);
+    public void selectVertice(double[] citieCord, List<String> verticeCoordinates) {
+        List<Double[]> coordinates = parseCoordinates(verticeCoordinates);
     }
 
 /*    protected int grafo(List<Double[]> coordinates, double[] citieCord) {
@@ -19,14 +19,20 @@ public class Vertice {
 
     }*/
 
-    protected static List<Double[]> parseCordenadas(List<String> value) {
+    protected static List<Double[]> parseCoordinates(List<String> coordinate) {
         List<Double[]> coordinates = new ArrayList<>();
-        value.forEach(x -> {
+        
+        coordinate.forEach(x -> {
             String[] cord = x.split(",");
             Double[] doubleCord = new Double[cord.length];
-            for (int i = 0; i < cord.length; i++) doubleCord[i] = Double.parseDouble(cord[i]);
+
+            for (int i = 0; i < cord.length; i++) {
+                doubleCord[i] = Double.parseDouble(cord[i]);
+            };
+
             coordinates.add(doubleCord);
         });
+
         return coordinates;
     }
 }

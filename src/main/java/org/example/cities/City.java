@@ -1,8 +1,6 @@
-package org.example.cidades;
+package org.example.cities;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class City {
@@ -33,6 +31,7 @@ public class City {
     @Override
     public String toString() {
         StringBuilder strings = new StringBuilder();
+        
         strings.append("City{")
                 .append("city='")
                 .append(city)
@@ -42,9 +41,7 @@ public class City {
                 .append("\'\'")
                 .append(", vertices=")
                 .append(vertices);
-    return strings.toString();
-
+    
+        return strings.toString();
     }
-
-
 }
