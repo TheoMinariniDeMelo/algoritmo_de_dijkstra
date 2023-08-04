@@ -6,30 +6,39 @@ import java.util.List;
 import java.util.Map;
 
 public class City {
-    protected Map<String, String> cities = new HashMap<>();
-    public List<Integer> vertices = new ArrayList<>();
+    protected String city;
+    protected String codernadas;
+    public Map<String, String> vertices = new HashMap<>();
 
-    public Map<String, String> getCities() {
-        return cities;
+    public City(String city, String codernadas, String vertices, String codVertices) {
+        this.city = city;
+        this.codernadas = codernadas;
+        this.vertices.put(vertices, codernadas);
     }
 
-    public void setCities(Map<String, String> cities) {
-        this.cities = cities;
+    public String getCity() {
+        return city;
     }
 
-    public List<Integer> getVertices() {
+    public String getCodernadas() {
+        return codernadas;
+    }
+
+
+    public Map<String, String> getVertices() {
         return vertices;
     }
 
-    public void setVertices(Integer vertices) {
-        this.vertices.add(vertices);
-    }
+
 
     @Override
     public String toString() {
         return "City{" +
-                "cities=" + cities +
+                "city='" + city + '\'' +
+                ", codernadas='" + codernadas + '\'' +
                 ", vertices=" + vertices +
                 '}';
     }
+
+
 }
