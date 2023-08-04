@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Vertice extends GeometricPitagoric {
-    public Double selectVertice(double[] citieCord, List<String> verticeCoordinates) {
+    public Double selectVertex(Double[] citieCord, List<String> verticeCoordinates) {
         List<Double[]> coordinates = parseCoordinates(verticeCoordinates);
         return fork(coordinates, citieCord);
     }
 
-    protected Double fork(List<Double[]> coordinates, double[] citieCord) {
+    protected Double fork(List<Double[]> coordinates, Double[] citieCord) {
         List<Double[]> cordieParam = new ArrayList<>();
         coordinates.forEach(coordinate -> {
             double result_x = coordinate[0] - citieCord[0];
