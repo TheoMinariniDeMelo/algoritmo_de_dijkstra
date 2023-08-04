@@ -8,18 +8,13 @@ import java.util.Map;
 public class City {
     protected String city;
     protected String codernadas;
-    public Map<String, String> vertices = new HashMap<>();
+    public Map<String, String> vertices;
 
     public City(String city, String codernadas, Vertice vertice) {
-        this.city = city;
-        this.codernadas = codernadas;
+        CityRecordProperity cityRecordProperity = new CityRecordProperity(city, codernadas, new HashMap<>());
     }
     public void setVertice(String vertices, String codVertices) {
         this.vertices.put(vertices, codVertices);
-    }
-
-    public String getCity() {
-        return city;
     }
 
     public String getCodernadas() {
