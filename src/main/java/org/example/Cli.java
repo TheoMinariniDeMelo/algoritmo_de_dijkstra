@@ -1,7 +1,10 @@
 package org.example;
 
 import org.example.enums.Status;
-import java.util.*;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Cli {
     protected Scanner scanner = new Scanner(System.in);
