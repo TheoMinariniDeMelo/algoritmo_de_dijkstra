@@ -11,7 +11,7 @@ public class City {
     public Map<String, String> vertices;
 
     public City(String city, String codernadas, Vertice vertice) {
-        CityRecordProperty cityRecordProperity = new CityRecordProperty(city, codernadas, new HashMap<>());
+        CityRecordProperty cityRecordProperty = new CityRecordProperty(city, codernadas, new HashMap<>());
     }
     public void setVertex(String vertices, String codVertices) {
         this.vertices.put(vertices, codVertices);

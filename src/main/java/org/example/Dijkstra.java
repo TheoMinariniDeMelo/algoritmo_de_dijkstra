@@ -26,7 +26,7 @@ public class Dijkstra {
         setVertexOfCity(vertices);
         setCities();
     }
-    private void setVertexOfCity(@NotNull List<String[]> vertices){
+    private void setVertexOfCity(List<String[]> vertices){
         vertices.forEach(x->{
             this.city.setVertex(x[0], x[1]);
         });
