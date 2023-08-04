@@ -10,7 +10,7 @@ public class Cli {
     private final Scanner scanner = new Scanner(System.in);
     private final Dijkstra dijkstra = new Dijkstra();
     private final ValidateCoordinates validateCoordinates = new ValidateCoordinates();
-    private final @NotNull Map<String, Integer> cities = new HashMap<>();
+    private final Map<String, Integer> cities = new HashMap<>();
 
     public Cli() {
         System.out.print("Number of city's: ");
