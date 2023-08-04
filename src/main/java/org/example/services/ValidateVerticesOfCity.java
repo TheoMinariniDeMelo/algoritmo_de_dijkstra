@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.example.cities.City;
 import org.example.vertice.Vertice;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,16 +10,21 @@ import java.util.List;
 import java.util.Map;
 
 public class ValidateVerticesOfCity {
-    public void validate(List<City> cities, Vertice vertice) {
+    protected List<Double> coordinatesVertex = new ArrayList<>();
+
+    public List<Double> getCoordinatesVertex(){
+        return coordinatesVertex;
+    }
+    public void validate(@NotNull List<City> cities, Vertice vertice) {
         cities.forEach(x -> {
-            vertice.selectVertex(
+            coordinatesVertex.add(vertice.selectVertex(
                     parseCoordinates(x.getCodernadas()),
                     parseMapToList(x.getVertices())
-            );
+            ));
         });
     }
 
-    private Double[] parseCoordinates(String coordinates) {
+    private Double @NotNull [] parseCoordinates(String coordinates) {
         Double[] coordinatesSplitDouble = new Double[2];
         int idx = 0;
         for (String element : coordinates.split(",")
@@ -29,7 +35,7 @@ public class ValidateVerticesOfCity {
         return coordinatesSplitDouble;
     }
 
-    private List<String> parseMapToList(Map<String, String> map) {
+    private @NotNull List<String> parseMapToList(Map<String, String> map) {
         List<String> listOfCoordinates = new ArrayList<>();
         map.forEach((x, i) -> {
             listOfCoordinates.add(i);
