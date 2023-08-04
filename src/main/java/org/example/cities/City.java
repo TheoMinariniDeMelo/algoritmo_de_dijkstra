@@ -11,13 +11,13 @@ public class City {
     public Map<String, String> vertices;
 
     public City(String city, String codernadas, Vertice vertice) {
-        CityRecordProperity cityRecordProperity = new CityRecordProperity(city, codernadas, new HashMap<>());
+        CityRecordProperty cityRecordProperity = new CityRecordProperty(city, codernadas, new HashMap<>());
     }
-    public void setVertice(String vertices, String codVertices) {
+    public void setVertex(String vertices, String codVertices) {
         this.vertices.put(vertices, codVertices);
     }
 
-    public String getCodernadas() {
+    public String getCoordinates() {
         return codernadas;
     }
 

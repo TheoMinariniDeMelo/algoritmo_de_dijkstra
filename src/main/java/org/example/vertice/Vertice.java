@@ -19,7 +19,7 @@ public class Vertice extends GeometricPitagoric {
             double result_y = coordinate[1] - citieCord[1];
             cordieParam.add(new Double[]{result_x, result_y});
         });
-        this.setHipotenuse(cordieParam.stream()
+        this.setHypotenuse(cordieParam.stream()
                 .sorted(Comparator.comparing(x -> x[0]))
                 .toList());
         return this.hipotenuse.stream().sorted().toList().get(0);

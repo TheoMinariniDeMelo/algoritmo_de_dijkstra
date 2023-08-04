@@ -8,7 +8,7 @@ public abstract class GeometricPitagoric {
 
     protected List<Double> hipotenuse;
 
-    public void setHipotenuse(List<Double[]> coordinates) {
+    public void setHypotenuse(List<Double[]> coordinates) {
         hipotenuse = coordinates.stream().map(x -> Math.sqrt(
                 Math.pow(x[0], 2) + Math.pow(x[1], 2)
         )).collect(Collectors.toList());
