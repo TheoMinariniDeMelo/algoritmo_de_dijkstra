@@ -1,26 +1,25 @@
-package org.example.vertice;
+package org.example.vertex;
 
 import org.example.services.GeometricPitagoric;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class Vertice extends GeometricPitagoric {
-    public Double selectVertex(Double[] citieCord, List<String> verticeCoordinates) {
-        List<Double[]> coordinates = parseCoordinates(verticeCoordinates);
-        return fork(coordinates, citieCord);
+public class Vertex extends GeometricPitagoric {
+    public Double selectVertex(Double[] cityCord, List<String> vertexCoordinates) {
+        List<Double[]> coordinates = parseCoordinates(vertexCoordinates);
+        return fork(coordinates, cityCord);
     }
 
-    private Double fork(List<Double[]> coordinates, Double[] citieCord) {
+    private Double fork(List<Double[]> coordinates, Double[] cityCord) {
         List<Double[]> cordieParam = new ArrayList<>();
         coordinates.forEach(coordinate -> {
-            double result_x = coordinate[0] - citieCord[0];
-            double result_y = coordinate[1] - citieCord[1];
+            double result_x = coordinate[0] - cityCord[0];
+            double result_y = coordinate[1] - cityCord[1];
             cordieParam.add(new Double[]{result_x, result_y});
         });
-        this.setHipotenuse(cordieParam.stream()
+        this.setHypotenuse(cordieParam.stream()
                 .sorted(Comparator.comparing(x -> x[0]))
                 .toList());
         return this.hipotenuse.stream().sorted().toList().get(0);
@@ -34,7 +33,7 @@ public class Vertice extends GeometricPitagoric {
 
             for (int i = 0; i < cord.length; i++) {
                 doubleCord[i] = Double.parseDouble(cord[i]);
-            };
+            }
             coordinates.add(doubleCord);
         });
 

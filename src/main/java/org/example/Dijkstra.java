@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.example.cities.City;
-import org.example.vertice.Vertice;
+import org.example.vertex.Vertex;
 import org.jetbrains.annotations.NotNull;
 
 public class Dijkstra {
 
     //protected City cidade = new City();
    private final @NotNull List<City> cities = new ArrayList<>();
-   private final @NotNull Vertice vertice = new Vertice();
+   private final @NotNull Vertex vertex = new Vertex();
    private City city;
     public List<City> getCity() {
         return cities;
@@ -23,13 +23,13 @@ public class Dijkstra {
     }
 
     public void setCity(String city, String coordinate, List<String[]> vertices) {
-        this.city = new City(city, coordinate, vertice);
-        setVerticeOfCity(vertices);
+        this.city = new City(city, coordinate, vertex);
+        setVertexOfCity(vertices);
         setCities();
     }
-    private void setVerticeOfCity(List<String[]> vertices){
+    private void setVertexOfCity(List<String[]> vertices){
         vertices.forEach(x->{
-            this.city.setVertice(x[0], x[1]);
+            this.city.setVertex(x[0], x[1]);
         });
     }
 }
