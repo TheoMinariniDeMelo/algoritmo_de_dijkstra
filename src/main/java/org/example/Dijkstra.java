@@ -1,9 +1,8 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import org.example.cities.City;
 import org.example.vertice.Vertice;
@@ -24,10 +23,10 @@ public class Dijkstra {
 
     public void setCity(String city, String coordinate, List<String[]> vertices) {
         this.city = new City(city, coordinate, vertice);
-        setVerticeOfCity(vertices);
+        setVertexOfCity(vertices);
         setCities();
     }
-    private void setVerticeOfCity(List<String[]> vertices){
+    private void setVertexOfCity(@NotNull List<String[]> vertices){
         vertices.forEach(x->{
             this.city.setVertice(x[0], x[1]);
         });
