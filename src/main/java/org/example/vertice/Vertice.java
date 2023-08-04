@@ -2,22 +2,22 @@ package org.example.vertice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Vertice {
     public void selectVertice(double[] citieCord, List<String> verticeCoordinates) {
         List<Double[]> coordinates = parseCoordinates(verticeCoordinates);
     }
 
-/*    protected int grafo(List<Double[]> coordinates, double[] citieCord) {
+    protected List<Double[]> grafo(List<Double[]> coordinates, double[] citieCord) {
         List<Double[]> cordieParam = new ArrayList<>();
-        coordinates.forEach(elemento -> {
-            double result_x = elemento[0] - citieCord[0];
-            double result_y = elemento[1] - citieCord[1];
+        coordinates.forEach(coordinate -> {
+            double result_x = coordinate[0] - citieCord[0];
+            double result_y = coordinate[1] - citieCord[1];
             cordieParam.add(new Double[]{result_x, result_y});
         });
-        cordieParam.stream().takeWhile(x-> x[0]!=0 && x[1]!=0);
-
-    }*/
+        return cordieParam.stream().filter(x->x[0] != 0 && x[1]!=0).collect(Collectors.toList());
+    }
 
     protected static List<Double[]> parseCoordinates(List<String> coordinate) {
         List<Double[]> coordinates = new ArrayList<>();
