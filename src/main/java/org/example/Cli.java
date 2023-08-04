@@ -11,7 +11,7 @@ public class Cli {
     protected Map<String, Integer> cities = new HashMap<>();
 
     public Cli() {
-        System.out.printf("Number of city's:");
+        System.out.print("Number of city's:");
         int citiesQuantity = scanner.nextInt();
         setScanner(citiesQuantity);
     }
