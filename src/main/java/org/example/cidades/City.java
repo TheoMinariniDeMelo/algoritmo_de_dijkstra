@@ -1,4 +1,4 @@
-package org.example;
+package org.example.cidades;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,14 +30,20 @@ public class City {
     }
 
 
-
     @Override
     public String toString() {
-        return "City{" +
-                "city='" + city + '\'' +
-                ", codernadas='" + codernadas + '\'' +
-                ", vertices=" + vertices +
-                '}';
+        StringBuilder strings = new StringBuilder();
+        strings.append("City{")
+                .append("city='")
+                .append(city)
+                .append("\'")
+                .append(", codernadas='")
+                .append(codernadas)
+                .append("\'\'")
+                .append(", vertices=")
+                .append(vertices);
+    return strings.toString();
+
     }
 
 
