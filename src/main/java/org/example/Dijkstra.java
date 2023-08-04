@@ -1,13 +1,17 @@
 package org.example;
 
+import javax.naming.Name;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Dijkstra {
-    protected Map<String, String> cities = new HashMap<>();
-    public Integer verticesQuantity;
-    
-    Dijkstra(Map<String, String> name, Integer verticesQuantity){
+
+    protected Integer verticesQuantity;
+    protected City cidade = new City();
+
+    protected Name nome;
+
+    Dijkstra(Map<String, String> name, Integer verticesQuantity) {
         this.verticesQuantity = verticesQuantity;
     }
 }
