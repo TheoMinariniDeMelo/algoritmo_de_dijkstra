@@ -30,18 +30,16 @@ public class City {
 
     @Override
     public String toString() {
-        StringBuilder strings = new StringBuilder();
-        
-        strings.append("City{")
+        StringBuilder strings = new StringBuilder()
+                .append("City{")
                 .append("city='")
                 .append(city)
-                .append("\'")
-                .append(", codernadas='")
+                .append("', codernadas='")
                 .append(codernadas)
-                .append("\'\'")
-                .append(", vertices=")
+                .append("', vertices=")
                 .append(vertices);
-    
+
         return strings.toString();
+
     }
 }
