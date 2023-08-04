@@ -28,16 +28,13 @@ public class Vertice extends GeometricPitagoric {
 
     protected static List<Double[]> parseCoordinates(List<String> coordinate) {
         List<Double[]> coordinates = new ArrayList<>();
-
         coordinate.forEach(x -> {
             String[] cord = x.split(",");
             Double[] doubleCord = new Double[cord.length];
 
             for (int i = 0; i < cord.length; i++) {
                 doubleCord[i] = Double.parseDouble(cord[i]);
-            }
-            ;
-
+            };
             coordinates.add(doubleCord);
         });
 
