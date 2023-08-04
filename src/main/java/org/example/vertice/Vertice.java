@@ -12,7 +12,7 @@ public class Vertice extends GeometricPitagoric {
         return fork(coordinates, citieCord);
     }
 
-    protected Double fork(List<Double[]> coordinates, Double[] citieCord) {
+    private Double fork(List<Double[]> coordinates, Double[] citieCord) {
         List<Double[]> cordieParam = new ArrayList<>();
         coordinates.forEach(coordinate -> {
             double result_x = coordinate[0] - citieCord[0];
@@ -25,7 +25,7 @@ public class Vertice extends GeometricPitagoric {
         return this.hipotenuse.stream().sorted().toList().get(0);
     }
 
-    protected static List<Double[]> parseCoordinates(List<String> coordinate) {
+    private static List<Double[]> parseCoordinates(List<String> coordinate) {
         List<Double[]> coordinates = new ArrayList<>();
         coordinate.forEach(x -> {
             String[] cord = x.split(",");

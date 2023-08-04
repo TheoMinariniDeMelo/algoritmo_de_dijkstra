@@ -2,8 +2,8 @@ package org.example.cities;
 
 import java.util.Map;
 
-public record CityRecordProperity(
+public record CityRecordProperty (
         String city,
-        String codernadas,
+        String Coordinates,
         Map<String, String> vertices) {
 }

@@ -13,7 +13,7 @@ public class Cli {
     private final @NotNull Map<String, Integer> cities = new HashMap<>();
 
     public Cli() {
-        System.out.print("Number of city's:");
+        System.out.print("Number of city's: ");
         int citiesQuantity = scanner.nextInt();
         setScanner(citiesQuantity);
     }
@@ -29,8 +29,15 @@ public class Cli {
                 System.out.printf("%n Add number of vertices ");
                 Integer vertexQuantity = scanner.nextInt();
 
-                System.out.printf("%n Add coordinates (x, y)");
+                scanner.nextLine();
+
+                System.out.printf("%n Add coordinates (x, y) ");
                 String coordinate = scanner.nextLine();
+
+                if(validateCoordinates.validate(coordinate)){
+                    System.out.printf("%s", validateCoordinates.validate(coordinate));
+                    return;
+                }
 
                 cities.put(city, vertexQuantity);
 
@@ -48,9 +55,9 @@ public class Cli {
                 });
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
-            } catch (Error error) {
-                System.out.printf("%n%s%n", Status.ERROR);
-                break;
+            } catch (InputMismatchException error) {
+                System.out.printf("%nThe type it's incorrect");
+                return;
             }
         }
         System.out.println(Status.ADDED);
