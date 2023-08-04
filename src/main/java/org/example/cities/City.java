@@ -1,5 +1,7 @@
 package org.example.cities;
 
+import org.example.vertice.Vertice;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,10 +10,12 @@ public class City {
     protected String codernadas;
     public Map<String, String> vertices = new HashMap<>();
 
-    public City(String city, String codernadas, String vertices, String codVertices) {
+    public City(String city, String codernadas, Vertice vertice) {
         this.city = city;
         this.codernadas = codernadas;
-        this.vertices.put(vertices, codernadas);
+    }
+    public void setVertice(String vertices, String codVertices) {
+        this.vertices.put(vertices, codVertices);
     }
 
     public String getCity() {
