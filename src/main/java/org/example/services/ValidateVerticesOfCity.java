@@ -16,15 +16,23 @@ public class ValidateVerticesOfCity {
     }
     public void validate(@NotNull List<City> cities, Vertex vertex) {
         cities.forEach(x -> {
+<<<<<<< HEAD
             coordinatesVertex.add(vertex.selectVertex(
                     parseCoordinates(x.getCoordinates()),
                     parseMapToList(x.getVertices())
+=======
+            System.out.println(x.getCoordinates());
+            coordinatesVertex.add(vertice.selectVertex(
+                    parseCoordinates(x.getCoordinates()),//faz o parse das cordenadas da cidade de referencia
+                    parseMapToList(x.getVertex())//faz o parse de map para list
+>>>>>>> origin/Théo
             ));
         });
     }
 
     private Double @NotNull [] parseCoordinates(String coordinates) {
         Double[] coordinatesSplitDouble = new Double[2];
+        System.out.println(coordinates);
         int idx = 0;
         for (String element : coordinates.split(",")
         ) {

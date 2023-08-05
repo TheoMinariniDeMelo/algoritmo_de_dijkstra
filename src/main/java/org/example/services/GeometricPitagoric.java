@@ -9,9 +9,10 @@ public abstract class GeometricPitagoric {
     protected List<Double> hypotenuse;
 
     public void setHypotenuse(List<Double[]> coordinates) {
-        hypotenuse = coordinates.stream().map(x -> Math.sqrt(
-                Math.pow(x[0], 2) + Math.pow(x[1], 2)
-        )).collect(Collectors.toList());
+        hypotenuse = coordinates.stream().map(x ->
+                Math.sqrt(//faz o teorema de pitagoras
+                        Math.pow(x[0], 2) + Math.pow(x[1], 2)
+                )).collect(Collectors.toList());
     }
 
 }

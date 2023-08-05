@@ -14,33 +14,29 @@ public class City {
         CityRecordProperty cityRecordProperty = new CityRecordProperty(city, coordinates, new HashMap<>());
 
     }
+
     public void setVertex(String vertices, String codVertices) {
         this.vertices.put(vertices, codVertices);
     }
 
     public String getCoordinates() {
-
         return coordinates;
-
     }
 
 
-    public Map<String, String> getVertices() {
+    public Map<String, String> getVertex() {
         return vertices;
     }
 
 
     @Override
     public String toString() {
-        StringBuilder message = new StringBuilder()
-                .append("City{")
-                .append("city='")
-                .append(city)
-                .append("', codernadas='")
-                .append(coordinates)
-                .append("', vertices=")
-                .append(vertices);
-
-        return message.toString();
+        return "City{"
+                + "city='"
+                + city
+                + "', codernadas='"
+                + coordinates
+                + "', vertices="
+                + vertices;
     }
 }
