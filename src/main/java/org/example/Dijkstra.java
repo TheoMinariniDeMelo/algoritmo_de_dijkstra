@@ -5,7 +5,6 @@ import java.util.List;
 
 
 import org.example.cities.City;
-import org.example.services.ValidateCoordinates;
 import org.example.services.ValidateVerticesOfCity;
 import org.example.vertex.Vertex;
 import org.jetbrains.annotations.NotNull;
