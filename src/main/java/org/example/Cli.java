@@ -22,13 +22,13 @@ public class Cli {
             int state = cityIndex + 1;
 
             try {
-                System.out.printf("%n add city %d: ", (state));
+                System.out.printf("add city %d: ", (state));
                 String city = scanner.next();
 
-                System.out.printf("%n Add coordinates (x,y) ");
+                System.out.print("Add coordinates (x,y) ");
                 String coordinate = scanner.next();
                 if (!validateCoordinates.validate(coordinate)) {
-                    System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                    System.out.printf("%n Write the coordinates in the format: (X,Y) %s", Status.ERROR);
                     cityIndex--;
                     continue;
                 }
@@ -39,14 +39,14 @@ public class Cli {
                 List<String[]> vertexList = new ArrayList<>();
 
                 for(int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++){
-                    System.out.printf("%n add vertex name ");
+                    System.out.print("Add vertex name ");
                     String name = scanner.next();
 
-                    System.out.printf("%n add coordinate (X,Y)");
+                    System.out.print("add coordinate (X,Y)");
 
                     String vertexCoordinate = scanner.next();
                     if (!validateCoordinates.validate(coordinate)) {
-                        System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                        System.out.printf("Write the coordinates in the format: (X,Y) %s", Status.ERROR);
                         cityIndex--;
                         continue;
                     }
@@ -63,22 +63,15 @@ public class Cli {
 
                 cities.add(city);
 
-                cities.forEach((name) -> {
-                    dijkstra.setCity(name, coordinate, vertexList);
-                });
+                cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
             } catch (InputMismatchException error) {
-                System.out.printf("%nThe type it's incorrect");
+                System.out.print("The type it's incorrect");
                 return;
             }
         }
         System.out.println(Status.ADDED);
-    }
-
-    public void cartesianPlane() {
-        List<Double> coordinateVertexResult = dijkstra.getVertexCoordinates();
-        coordinateVertexResult.forEach(System.out::println);
     }
 }
 
