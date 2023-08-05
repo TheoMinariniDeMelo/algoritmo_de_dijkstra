@@ -15,7 +15,6 @@ public class Cli {
         System.out.print("Number of city's: ");
         int citiesQuantity = scanner.nextInt();
         setScanner(citiesQuantity);
-        cartesianPlane();
     }
 
     private void setScanner(int citiesQuantity) {
@@ -34,6 +33,7 @@ public class Cli {
                     continue;
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
                 System.out.printf("%n Add number of vertices ");
@@ -49,6 +49,14 @@ public class Cli {
                     String[] info = {name, coordinate};
                     vertices.add(info);
 =======
+=======
+
+                System.out.printf("%n Add number of vertices ");
+                int vertexQuantity = scanner.nextInt();
+
+                List<String[]> vertexList = new ArrayList<>();
+
+>>>>>>> origin/Jorel
                 for(int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++){
                     System.out.printf("%n add vertex name ");
                     String name = scanner.next();
@@ -62,10 +70,13 @@ public class Cli {
                 }
 
                 scanner.nextLine();
+<<<<<<< HEAD
+>>>>>>> origin/Jorel
+=======
 >>>>>>> origin/Jorel
 
                 cities.add(city);
-
+                
                 cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
@@ -80,7 +91,6 @@ public class Cli {
     public void cartesianPlane() {
         List<Double> coordinateVertexResult = dijkstra.getVertexCoordinates();
         coordinateVertexResult.forEach(System.out::println);
-
     }
 }
 
