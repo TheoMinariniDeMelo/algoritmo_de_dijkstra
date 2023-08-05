@@ -22,7 +22,7 @@ public class Vertex extends GeometricPitagoric {
         this.setHypotenuse(cordieParam.stream()
                 .sorted(Comparator.comparing(x -> x[0]))
                 .toList());
-        return this.hipotenuse.stream().sorted().toList().get(0);
+        return this.hypotenuse.stream().sorted().toList().get(0);
     }
 
     private static List<Double[]> parseCoordinates(List<String> coordinate) {
