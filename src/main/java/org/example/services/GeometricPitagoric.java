@@ -5,14 +5,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class GeometricPitagoric {
-
-    protected List<Double> hypotenuse;
-
-    public void setHypotenuse(List<Double[]> coordinates) {
-        hypotenuse = coordinates.stream().map(x ->
-                Math.sqrt(//faz o teorema de pitagoras
-                        Math.pow(x[0], 2) + Math.pow(x[1], 2)
-                )).collect(Collectors.toList());
+    public static double binomy(Double[] coordinate, Double[] cityCord) {
+        System.out.println(coordinate[0] + "--------" + cityCord[0]);
+        return Math.sqrt(GeometricPitagoric.calculateBinomy(coordinate[1], coordinate[1]) + GeometricPitagoric.calculateBinomy(coordinate[1], coordinate[1]));
     }
+
+    public static double calculateBinomy(Double coordinate, Double cityCord) {
+        coordinate = Math.abs(coordinate);
+        cityCord = Math.abs(cityCord);
+        return Math.pow(coordinate, 2) - 2 * coordinate * cityCord + Math.pow(cityCord, 2);
+    }
+
 
 }

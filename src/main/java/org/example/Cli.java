@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Dijkstra;
 import org.example.enums.Status;
 import org.example.services.ValidateCoordinates;
 
@@ -23,31 +24,31 @@ public class Cli {
             int state = cityIndex + 1;
 
             try {
-                System.out.printf("%n add city %d: ", (state));
+                System.out.printf("Add city %d: ", (state));
                 String city = scanner.next();
 
-                System.out.printf("%n Add coordinates (x,y) ");
+                System.out.println("Add coordinates (x,y): ");
                 String coordinate = scanner.next();
                 if (!validateCoordinates.validate(coordinate)) {
-                    System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                    System.out.printf("%sEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
                     cityIndex--;
                     continue;
                 }
 
-                System.out.printf("%n Add number of vertices ");
+                System.out.print("Add number of vertices:  ");
                 int vertexQuantity = scanner.nextInt();
 
                 List<String[]> vertexList = new ArrayList<>();
 
                 for (int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++) {
-                    System.out.printf("%n add vertex name ");
+                    System.out.print("Add vertex name: ");
                     String name = scanner.next();
 
-                    System.out.printf("%n add coordinate (X,Y)");
+                    System.out.print("Add coordinate (X,Y): ");
 
                     String vertexCoordinate = scanner.next();
                     if (!validateCoordinates.validate(coordinate)) {
-                        System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                        System.out.printf("%sEscreva as cordenadas no formato: (X,Y): ", Status.ERROR);
                         cityIndex--;
                         continue;
                     }
@@ -65,9 +66,9 @@ public class Cli {
                     dijkstra.setCity(name, coordinate, vertexList);
                 });
 
-                System.out.printf("%n%s%n", Status.PROCESSING);
+                System.out.printf("%s", Status.PROCESSING);
             } catch (InputMismatchException error) {
-                System.out.printf("%nThe type it's incorrect");
+                System.out.println("The type it's incorrect");
                 return;
             }
         }
@@ -81,4 +82,3 @@ public class Cli {
         coordinateVertexResult.forEach(System.out::println);
     }
 }
-
