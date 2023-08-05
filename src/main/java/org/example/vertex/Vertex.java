@@ -1,6 +1,7 @@
 package org.example.vertex;
 
 import org.example.services.GeometricPitagoric;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -29,7 +30,7 @@ public class Vertex extends GeometricPitagoric {
         return this.hypotenuse.stream().sorted().toList().get(0);
     }
 
-    private static List<Double[]> parseCoordinates(List<String> coordinate) {
+    private static @NotNull List<Double[]> parseCoordinates(List<String> coordinate) {
         List<Double[]> coordinates = new ArrayList<>();
         coordinate.forEach(x -> {
             String[] cord = x.split(",");

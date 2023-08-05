@@ -14,12 +14,13 @@ public class ValidateVerticesOfCity {
     public List<Double> getCoordinatesVertex(){
         return coordinatesVertex;
     }
-    public void validate(@NotNull List<City> cities, Vertex vertice) {
+    public void validate(@NotNull List<City> cities, Vertex vertex) {
         cities.forEach(x -> {
-            System.out.println(x.getCoordinates());
-            coordinatesVertex.add(vertice.selectVertex(
-                    parseCoordinates(x.getCoordinates()),//faz o parse das cordenadas da cidade de referencia
-                    parseMapToList(x.getVertex())//faz o parse de map para list
+
+            coordinatesVertex.add(vertex.selectVertex(
+                    parseCoordinates(x.getCoordinates()),
+                    parseMapToList(x.getVertex())
+
             ));
         });
     }

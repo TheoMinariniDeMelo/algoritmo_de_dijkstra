@@ -2,7 +2,6 @@ package org.example;
 
 import org.example.enums.Status;
 import org.example.services.ValidateCoordinates;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -10,7 +9,7 @@ public class Cli {
     private final Scanner scanner = new Scanner(System.in);
     private final Dijkstra dijkstra = new Dijkstra();
     private final ValidateCoordinates validateCoordinates = new ValidateCoordinates();
-    private final Map<String, Integer> cities = new HashMap<>();
+    private final List<String> cities = new ArrayList<>();
 
     public Cli() {
         System.out.print("Number of city's: ");
@@ -27,10 +26,6 @@ public class Cli {
                 System.out.printf("%n add city %d: ", (state));
                 String city = scanner.next();
 
-                System.out.printf("%n Add number of vertices ");
-                Integer vertexQuantity = scanner.nextInt();
-
-                scanner.nextLine();
                 System.out.printf("%n Add coordinates (x,y) ");
                 String coordinate = scanner.next();
                 if (!validateCoordinates.validate(coordinate)) {
@@ -38,16 +33,40 @@ public class Cli {
                     cityIndex--;
                     continue;
                 }
+<<<<<<< HEAD
+=======
 
+                System.out.printf("%n Add number of vertices ");
+                int vertexQuantity = scanner.nextInt();
+>>>>>>> origin/Jorel
 
+                List<String[]> vertexList = new ArrayList<>();
+
+<<<<<<< HEAD
                 cities.put(city, vertexQuantity);
                 List<String[]> vertices = new ArrayList<String[]>();
                 cities.forEach((name, i) -> {
                     String[] info = {name, coordinate};
                     vertices.add(info);
+=======
+                for(int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++){
+                    System.out.printf("%n add vertex name ");
+                    String name = scanner.next();
 
-                    dijkstra.setCity(name, coordinate, vertices);
-                });
+                    String[] vertexInfos = {
+                            name,
+                            coordinate
+                    };
+
+                    vertexList.add(vertexInfos);
+                }
+
+                scanner.nextLine();
+>>>>>>> origin/Jorel
+
+                cities.add(city);
+
+                cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
             } catch (InputMismatchException error) {
