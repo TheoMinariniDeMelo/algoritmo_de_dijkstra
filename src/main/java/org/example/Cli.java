@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.Dijkstra;
 import org.example.enums.Status;
 import org.example.services.ValidateCoordinates;
 
@@ -29,7 +28,7 @@ public class Cli {
 
                 System.out.println("Add coordinates (x,y): ");
                 String coordinate = scanner.next();
-                if (!validateCoordinates.validate(coordinate)) {
+                if (validateCoordinates.validation(coordinate)) {
                     System.out.printf("%sEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
                     cityIndex--;
                     continue;
@@ -47,7 +46,7 @@ public class Cli {
                     System.out.print("Add coordinate (X,Y): ");
 
                     String vertexCoordinate = scanner.next();
-                    if (!validateCoordinates.validate(coordinate)) {
+                    if (validateCoordinates.validation(coordinate)) {
                         System.out.printf("%sEscreva as cordenadas no formato: (X,Y): ", Status.ERROR);
                         cityIndex--;
                         continue;
@@ -79,6 +78,6 @@ public class Cli {
     public void cartesianPlane() {
         List<Double> coordinateVertexResult = dijkstra.getVertexCoordinates();
         System.out.println();
-        coordinateVertexResult.forEach(System.out::println);
+        coordinateVertexResult.forEach(element-> System.out.printf("Coordinates Finaly: %.2f", element));
     }
 }
