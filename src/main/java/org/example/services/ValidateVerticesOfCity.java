@@ -14,9 +14,9 @@ public class ValidateVerticesOfCity {
     public List<Double> getCoordinatesVertex(){
         return coordinatesVertex;
     }
-    public void validate(@NotNull List<City> cities, Vertex vertice) {
+    public void validate(@NotNull List<City> cities, Vertex vertex) {
         cities.forEach(x -> {
-            coordinatesVertex.add(vertice.selectVertex(
+            coordinatesVertex.add(vertex.selectVertex(
                     parseCoordinates(x.getCoordinates()),
                     parseMapToList(x.getVertices())
             ));
