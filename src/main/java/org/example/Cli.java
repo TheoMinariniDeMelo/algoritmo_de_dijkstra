@@ -32,31 +32,12 @@ public class Cli {
                     cityIndex--;
                     continue;
                 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-                System.out.printf("%n Add number of vertices ");
-                int vertexQuantity = scanner.nextInt();
->>>>>>> origin/Jorel
-
-                List<String[]> vertexList = new ArrayList<>();
-
-<<<<<<< HEAD
-                cities.put(city, vertexQuantity);
-                List<String[]> vertices = new ArrayList<String[]>();
-                cities.forEach((name, i) -> {
-                    String[] info = {name, coordinate};
-                    vertices.add(info);
-=======
-=======
 
                 System.out.printf("%n Add number of vertices ");
                 int vertexQuantity = scanner.nextInt();
 
                 List<String[]> vertexList = new ArrayList<>();
 
->>>>>>> origin/Jorel
                 for(int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++){
                     System.out.printf("%n add vertex name ");
                     String name = scanner.next();
@@ -70,10 +51,6 @@ public class Cli {
                 }
 
                 scanner.nextLine();
-<<<<<<< HEAD
->>>>>>> origin/Jorel
-=======
->>>>>>> origin/Jorel
 
                 cities.add(city);
                 

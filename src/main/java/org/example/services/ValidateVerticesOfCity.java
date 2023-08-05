@@ -11,9 +11,10 @@ import java.util.Map;
 public class ValidateVerticesOfCity {
     protected List<Double> coordinatesVertex = new ArrayList<>();
 
-    public List<Double> getCoordinatesVertex(){
+    public List<Double> getCoordinatesVertex() {
         return coordinatesVertex;
     }
+
     public void validate(@NotNull List<City> cities, Vertex vertex) {
         cities.forEach(x -> {
 
@@ -29,8 +30,7 @@ public class ValidateVerticesOfCity {
         Double[] coordinatesSplitDouble = new Double[2];
         System.out.println(coordinates);
         int idx = 0;
-        for (String element : coordinates.split(",")
-        ) {
+        for (String element : coordinates.split(",")) {
             coordinatesSplitDouble[idx] = Double.parseDouble(element);
             idx++;
         }
