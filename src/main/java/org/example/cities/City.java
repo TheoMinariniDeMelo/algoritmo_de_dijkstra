@@ -1,25 +1,26 @@
 package org.example.cities;
 
 import org.example.vertex.Vertex;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class City {
-    protected String city;
-    protected String coordinates;
+    protected @NotNull String city;
+    protected @NotNull String coordinates;
     public Map<String, String> vertices = new HashMap<>();
 
-    public City(String city, String coordinates, Vertex vertex) {
-        CityRecordProperty cityRecordProperty = new CityRecordProperty(city, coordinates, new HashMap<>());
-
+    public City(@NotNull String city, @NotNull String coordinates, Vertex vertex) {
+        this.city = city;
+        this.coordinates = coordinates;
     }
 
     public void setVertex(String vertices, String codVertices) {
         this.vertices.put(vertices, codVertices);
     }
 
-    public String getCoordinates() {
+    public @NotNull String getCoordinates() {
         return coordinates;
     }
 

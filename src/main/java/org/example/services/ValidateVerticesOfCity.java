@@ -11,24 +11,23 @@ import java.util.Map;
 public class ValidateVerticesOfCity {
     protected List<Double> coordinatesVertex = new ArrayList<>();
 
-    public List<Double> getCoordinatesVertex(){
+    public List<Double> getCoordinatesVertex() {
         return coordinatesVertex;
     }
+
     public void validate(@NotNull List<City> cities, Vertex vertex) {
-        cities.forEach(x ->
+        cities.forEach(x -> {
             coordinatesVertex.add(vertex.selectVertex(
-                    parseCoordinates(x.getCoordinates()),//faz o parse das cordenadas da cidade de referencia
-                    parseMapToList(x.getVertex())//faz o parse de map para list
-            ))
-        );
+                    parseCoordinates(x.getCoordinates()),
+                    parseMapToList(x.getVertex())
+            ));
+        });
     }
 
     private Double @NotNull [] parseCoordinates(String coordinates) {
         Double[] coordinatesSplitDouble = new Double[2];
-        System.out.println(coordinates);
         int idx = 0;
-        for (String element : coordinates.split(",")
-        ) {
+        for (String element : coordinates.split(",")) {
             coordinatesSplitDouble[idx] = Double.parseDouble(element);
             idx++;
         }

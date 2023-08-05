@@ -14,10 +14,10 @@ public class Cli {
     public Cli() {
         System.out.print("Number of city's: ");
         int citiesQuantity = scanner.nextInt();
-        setScanner(citiesQuantity);
+        setQuestions(citiesQuantity);
     }
 
-    private void setScanner(int citiesQuantity) {
+    private void setQuestions(int citiesQuantity) {
         for (int cityIndex = 0; cityIndex < citiesQuantity; cityIndex++) {
             int state = cityIndex + 1;
 
@@ -25,28 +25,27 @@ public class Cli {
                 System.out.printf("add city %d: ", (state));
                 String city = scanner.next();
 
-                System.out.print("Add coordinates (x,y) ");
+                System.out.print("Add city coordinates (x,y): ");
                 String coordinate = scanner.next();
-                if (!validateCoordinates.validate(coordinate)) {
-                    System.out.printf("%n Write the coordinates in the format: (X,Y) %s", Status.ERROR);
+
+                if(validateCoordinates.validate(coordinate)){
                     cityIndex--;
                     continue;
                 }
 
-                System.out.printf("%n Add number of vertices ");
+                System.out.print("Add number of vertices: ");
                 int vertexQuantity = scanner.nextInt();
 
                 List<String[]> vertexList = new ArrayList<>();
 
                 for(int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++){
-                    System.out.print("Add vertex name ");
+                    System.out.print("Add vertex name: ");
                     String name = scanner.next();
 
-                    System.out.print("add coordinate (X,Y)");
-
+                    System.out.print("add vertex coordinate (X,Y): ");
                     String vertexCoordinate = scanner.next();
-                    if (!validateCoordinates.validate(coordinate)) {
-                        System.out.printf("Write the coordinates in the format: (X,Y) %s", Status.ERROR);
+
+                    if(validateCoordinates.validate(coordinate)){
                         cityIndex--;
                         continue;
                     }
@@ -59,16 +58,13 @@ public class Cli {
                     vertexList.add(vertexInfos);
                 }
 
-                scanner.nextLine();
-
                 cities.add(city);
 
                 cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
             } catch (InputMismatchException error) {
-                System.out.print("The type it's incorrect");
-                return;
+                System.out.println("The type it's incorrect");
             }
         }
         System.out.println(Status.ADDED);
