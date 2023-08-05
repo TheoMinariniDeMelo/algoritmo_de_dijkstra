@@ -16,7 +16,7 @@ public class Vertex {
         return fork(coordinates, cityCord);
     }
 
-    private Double fork(List<Double[]> coordinates, Double[] cityCord) {
+    private Double fork(@NotNull List<Double[]> coordinates, Double[] cityCord) {
         List<Double> cordieParam = new ArrayList<>();
 
         coordinates.forEach(coordinate -> cordieParam.add(MathGeometric.euclidean(coordinate, cityCord)));
