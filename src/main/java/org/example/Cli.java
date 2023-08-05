@@ -15,6 +15,7 @@ public class Cli {
         System.out.print("Number of city's: ");
         int citiesQuantity = scanner.nextInt();
         setScanner(citiesQuantity);
+        cartesianPlane();
     }
 
     private void setScanner(int citiesQuantity) {
@@ -38,7 +39,7 @@ public class Cli {
 
                 List<String[]> vertexList = new ArrayList<>();
 
-                for(int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++){
+                for (int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++) {
                     System.out.printf("%n add vertex name ");
                     String name = scanner.next();
 
@@ -51,19 +52,18 @@ public class Cli {
                         continue;
                     }
 
-                    String[] vertexInfos = {
-                            name,
-                            vertexCoordinate
-                    };
+                    String[] vertexInfo= {name, vertexCoordinate};
 
-                    vertexList.add(vertexInfos);
+                    vertexList.add(vertexInfo);
                 }
 
                 scanner.nextLine();
 
                 cities.add(city);
-
-                cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
+                System.out.println();
+                cities.forEach((name) -> {
+                    dijkstra.setCity(name, coordinate, vertexList);
+                });
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
             } catch (InputMismatchException error) {
@@ -72,10 +72,12 @@ public class Cli {
             }
         }
         System.out.println(Status.ADDED);
+        scanner.close();
     }
 
     public void cartesianPlane() {
         List<Double> coordinateVertexResult = dijkstra.getVertexCoordinates();
+        System.out.println();
         coordinateVertexResult.forEach(System.out::println);
     }
 }

@@ -17,18 +17,15 @@ public class ValidateVerticesOfCity {
 
     public void validate(@NotNull List<City> cities, Vertex vertex) {
         cities.forEach(x -> {
-
             coordinatesVertex.add(vertex.selectVertex(
                     parseCoordinates(x.getCoordinates()),
                     parseMapToList(x.getVertex())
-
             ));
         });
     }
 
     private Double @NotNull [] parseCoordinates(String coordinates) {
         Double[] coordinatesSplitDouble = new Double[2];
-        System.out.println(coordinates);
         int idx = 0;
         for (String element : coordinates.split(",")) {
             coordinatesSplitDouble[idx] = Double.parseDouble(element);
@@ -37,7 +34,7 @@ public class ValidateVerticesOfCity {
         return coordinatesSplitDouble;
     }
 
-    private @NotNull List<String> parseMapToList(Map<String, String> map) {
+    private @NotNull List<String> parseMapToList(@NotNull Map<String, String> map) {
         List<String> listOfCoordinates = new ArrayList<>();
         map.forEach((x, i) -> {
             listOfCoordinates.add(i);
