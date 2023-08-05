@@ -4,6 +4,6 @@ import java.util.Map;
 
 public record CityRecordProperty (
         String city,
-        String Coordinates,
+        String coordinates,
         Map<String, String> vertices) {
 }

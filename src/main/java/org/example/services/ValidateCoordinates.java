@@ -4,10 +4,10 @@ import java.util.regex.*;
 
 public class ValidateCoordinates {
     public boolean validate(String coordinates){
-        String pattern = "^\\s*-?\\d+\\s*,\\s*-?\\d+\\s*$\n";
+        String pattern = "^\\s*-?\\d+\\s*,\\s*-?\\d+\\s*$";
 
-        Pattern compilatedPattern = Pattern.compile(pattern);
-        Matcher matcher = compilatedPattern.matcher(coordinates);
+        Pattern compiledPattern = Pattern.compile(pattern);
+        Matcher matcher = compiledPattern.matcher(coordinates);
 
         return matcher.matches();
     }

@@ -8,17 +8,20 @@ import java.util.Map;
 public class City {
     protected String city;
     protected String coordinates;
-    public Map<String, String> vertices;
+    public Map<String, String> vertices = new HashMap<>();
 
     public City(String city, String coordinates, Vertex vertex) {
         CityRecordProperty cityRecordProperty = new CityRecordProperty(city, coordinates, new HashMap<>());
+
     }
     public void setVertex(String vertices, String codVertices) {
         this.vertices.put(vertices, codVertices);
     }
 
     public String getCoordinates() {
+
         return coordinates;
+
     }
 
 
@@ -39,6 +42,5 @@ public class City {
                 .append(vertices);
 
         return message.toString();
-
     }
 }

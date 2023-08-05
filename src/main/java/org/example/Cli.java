@@ -10,7 +10,7 @@ public class Cli {
     private final Scanner scanner = new Scanner(System.in);
     private final Dijkstra dijkstra = new Dijkstra();
     private final ValidateCoordinates validateCoordinates = new ValidateCoordinates();
-    private final @NotNull Map<String, Integer> cities = new HashMap<>();
+    private final Map<String, Integer> cities = new HashMap<>();
 
     public Cli() {
         System.out.print("Number of city's: ");
@@ -30,24 +30,22 @@ public class Cli {
                 Integer vertexQuantity = scanner.nextInt();
 
                 scanner.nextLine();
+                System.out.printf("%n Add coordinates (x,y) ");
+                String coordinate = scanner.next();
+                    if (!validateCoordinates.validate(coordinate)) {
+                        System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                        cityIndex--;
+                        continue;
+                    }
 
-                System.out.printf("%n Add coordinates (x, y) ");
-                String coordinate = scanner.nextLine();
 
-                if(validateCoordinates.validate(coordinate)){
-                    System.out.printf("%s", validateCoordinates.validate(coordinate));
-                    return;
-                }
 
                 cities.put(city, vertexQuantity);
 
                 cities.forEach((name, i) -> {
                     List<String[]> vertices = new ArrayList<String[]>();
 
-                    String[] info = {
-                            name,
-                            coordinate
-                    };
+                    String[] info = {name, coordinate};
 
                     vertices.add(info);
 
