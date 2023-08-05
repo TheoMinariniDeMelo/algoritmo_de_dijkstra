@@ -25,7 +25,6 @@ public class Cli {
     private int numberOfCity() {
         int number = 0;
         boolean validInput = false;
-
         do {
             try {
                 System.out.print("Number of cities: ");

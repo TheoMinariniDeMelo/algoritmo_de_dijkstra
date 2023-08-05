@@ -16,22 +16,30 @@ public class ValidateVerticesOfCity {
     }
 
     public void validate(@NotNull List<City> cities, Vertex vertex) {
+
         cities.forEach(x -> {
+            List<String> list = new ArrayList<>();
+            list.add(x.getCoordinates());
             coordinatesVertex.add(vertex.selectVertex(
-                    parseCoordinates(x.getCoordinates()),
+                    parseCoordinates(list).get(0),
                     parseMapToList(x.getVertex())
             ));
         });
     }
 
-    private Double @NotNull [] parseCoordinates(String coordinates) {
-        Double[] coordinatesSplitDouble = new Double[2];
-        int idx = 0;
-        for (String element : coordinates.split(",")) {
-            coordinatesSplitDouble[idx] = Double.parseDouble(element);
-            idx++;
-        }
-        return coordinatesSplitDouble;
+
+    public static @NotNull List<Double[]> parseCoordinates(List<String> coordinate) {
+        List<Double[]> coordinates = new ArrayList<>();
+        coordinate.forEach(x -> {
+            String[] cord = x.replaceAll(" ", "").split(",");
+            Double[] doubleCord = new Double[cord.length];
+            for (int i = 0; i < cord.length; i++) {
+                doubleCord[i] = Double.parseDouble(cord[i]);
+            }
+            coordinates.add(doubleCord);
+        });
+
+        return coordinates;
     }
 
     private @NotNull List<String> parseMapToList(@NotNull Map<String, String> map) {
