@@ -42,9 +42,18 @@ public class Cli {
                     System.out.printf("%n add vertex name ");
                     String name = scanner.next();
 
+                    System.out.printf("%n add coordinate (X,Y)");
+
+                    String vertexCoordinate = scanner.next();
+                    if (!validateCoordinates.validate(coordinate)) {
+                        System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                        cityIndex--;
+                        continue;
+                    }
+
                     String[] vertexInfos = {
                             name,
-                            coordinate
+                            vertexCoordinate
                     };
 
                     vertexList.add(vertexInfos);
@@ -53,7 +62,7 @@ public class Cli {
                 scanner.nextLine();
 
                 cities.add(city);
-                
+
                 cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
