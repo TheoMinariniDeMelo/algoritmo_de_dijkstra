@@ -63,7 +63,9 @@ public class Cli {
 
                 cities.add(city);
 
-                cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
+                cities.forEach((name) -> {
+                    dijkstra.setCity(name, coordinate, vertexList);
+                });
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
             } catch (InputMismatchException error) {
