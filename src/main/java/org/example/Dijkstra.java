@@ -5,13 +5,15 @@ import java.util.List;
 
 
 import org.example.cities.City;
+import org.example.services.ValidateCoordinates;
+import org.example.services.ValidateVerticesOfCity;
 import org.example.vertex.Vertex;
 import org.jetbrains.annotations.NotNull;
 
 public class Dijkstra {
-   private final @NotNull List<City> cities = new ArrayList<>();
-   private final @NotNull Vertex vertex = new Vertex();
-   private City city;
+    private final @NotNull List<City> cities = new ArrayList<>();
+    private final @NotNull Vertex vertex = new Vertex();
+    private City city;
 
     private void setCities() {
         this.cities.add(city);
@@ -22,9 +24,14 @@ public class Dijkstra {
         setVertexOfCity(vertices);
         setCities();
     }
-    private void setVertexOfCity(List<String[]> vertices){
-        vertices.forEach(x->{
-            this.city.setVertex(x[0], x[1]);
-        });
+
+    private void setVertexOfCity(List<String[]> vertices) {
+        vertices.forEach(x -> this.city.setVertex(x[0], x[1]));
+    }
+
+    public List<Double> getVertexCoordinates() {
+        ValidateVerticesOfCity validateVerticesOfCity = new ValidateVerticesOfCity();//pega a cordenada final do vertice
+        validateVerticesOfCity.validate(this.cities, vertex);
+        return validateVerticesOfCity.getCoordinatesVertex();
     }
 }

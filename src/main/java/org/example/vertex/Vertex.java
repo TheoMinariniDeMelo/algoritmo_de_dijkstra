@@ -15,10 +15,14 @@ public class Vertex extends GeometricPitagoric {
     private Double fork(List<Double[]> coordinates, Double[] cityCord) {
         List<Double[]> cordieParam = new ArrayList<>();
         coordinates.forEach(coordinate -> {
-            double result_x = coordinate[0] - cityCord[0];
             double result_y = coordinate[1] - cityCord[1];
+            double result_x = coordinate[0] - cityCord[0];
             cordieParam.add(new Double[]{result_x, result_y});
         });
+        return sortedList(cordieParam);
+    }
+
+    private double sortedList(List<Double[]> cordieParam) {
         this.setHypotenuse(cordieParam.stream()
                 .sorted(Comparator.comparing(x -> x[0]))
                 .toList());

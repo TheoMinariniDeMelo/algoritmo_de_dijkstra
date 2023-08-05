@@ -16,6 +16,7 @@ public class Cli {
         System.out.print("Number of city's: ");
         int citiesQuantity = scanner.nextInt();
         setScanner(citiesQuantity);
+        cartesianPlane();
     }
 
     private void setScanner(int citiesQuantity) {
@@ -32,21 +33,17 @@ public class Cli {
                 scanner.nextLine();
                 System.out.printf("%n Add coordinates (x,y) ");
                 String coordinate = scanner.next();
-                    if (!validateCoordinates.validate(coordinate)) {
-                        System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
-                        cityIndex--;
-                        continue;
-                    }
-
+                if (!validateCoordinates.validate(coordinate)) {
+                    System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                    cityIndex--;
+                    continue;
+                }
 
 
                 cities.put(city, vertexQuantity);
-
+                List<String[]> vertices = new ArrayList<String[]>();
                 cities.forEach((name, i) -> {
-                    List<String[]> vertices = new ArrayList<String[]>();
-
                     String[] info = {name, coordinate};
-
                     vertices.add(info);
 
                     dijkstra.setCity(name, coordinate, vertices);
@@ -60,4 +57,11 @@ public class Cli {
         }
         System.out.println(Status.ADDED);
     }
+
+    public void cartesianPlane() {
+        List<Double> coordinateVertexResult = dijkstra.getVertexCoordinates();
+        coordinateVertexResult.forEach(System.out::println);
+
+    }
 }
+
