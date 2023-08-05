@@ -1,11 +1,10 @@
 package org.example.vertex;
 
-import org.example.services.GeometricPitagoric;
+import org.example.services.MathGeometric;
 import org.example.services.Sort;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Vertex {
@@ -18,9 +17,7 @@ public class Vertex {
     private Double fork(@NotNull List<Double[]> coordinates, Double[] cityCord) {
         List<Double> cordieParam = new ArrayList<>();
 
-        coordinates.forEach(coordinate -> cordieParam.add((GeometricPitagoric.binomy(coordinate, cityCord))));
-
-        cordieParam.forEach(x -> System.out.println(x + "---------------"));
+        coordinates.forEach(coordinate -> cordieParam.add(MathGeometric.euclidean(coordinate, cityCord)));
         return Sort.sortedList(cordieParam);
     }
 

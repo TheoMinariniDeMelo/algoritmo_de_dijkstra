@@ -3,7 +3,10 @@ package org.example;
 import org.example.enums.Status;
 import org.example.services.ValidateCoordinates;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Cli {
     private final Scanner scanner = new Scanner(System.in);
@@ -15,6 +18,26 @@ public class Cli {
         System.out.print("Number of city's: ");
         int citiesQuantity = scanner.nextInt();
         setQuestions(citiesQuantity);
+        setQuestions(numberOfCity());
+        cartesianPlane();
+    }
+
+    private int numberOfCity() {
+        int number = 0;
+        boolean validInput = false;
+
+        do {
+            try {
+                System.out.print("Number of cities: ");
+                number = scanner.nextInt();
+                validInput = true;
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scanner.nextLine(); // Limpa o buffer do scanner
+            }
+        } while (!validInput);
+
+        return number;
     }
 
     private void setQuestions(int citiesQuantity) {
@@ -33,7 +56,7 @@ public class Cli {
                     continue;
                 }
 
-                System.out.print("Add number of vertices: ");
+                System.out.println("Add number of vertices: ");
                 int vertexQuantity = scanner.nextInt();
 
                 List<String[]> vertexList = new ArrayList<>();
@@ -49,6 +72,14 @@ public class Cli {
                         cityIndex--;
                         continue;
                     }
+
+                for (int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++) {
+                    System.out.println("Add vertex name: ");
+                    String name = scanner.next();
+
+                    System.out.println("add coordinate (X,Y): ");
+
+                    String vertexCoordinate = scanner.next();
 
                     String[] vertexInfos = {
                             name,
@@ -70,4 +101,7 @@ public class Cli {
         System.out.println(Status.ADDED);
     }
 }
-
+    private void cartesianPlane() {
+        this.dijkstra.getVertexCoordinates().forEach(System.out::println);
+    }
+}
