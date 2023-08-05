@@ -1,24 +1,27 @@
 package org.example.cities;
 
-import org.example.vertice.Vertice;
+import org.example.vertex.Vertex;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class City {
     protected String city;
-    protected String codernadas;
-    public Map<String, String> vertices;
+    protected String coordinates;
+    public Map<String, String> vertices = new HashMap<>();
 
-    public City(String city, String codernadas, Vertice vertice) {
-        CityRecordProperty cityRecordProperty = new CityRecordProperty(city, codernadas, new HashMap<>());
+    public City(String city, String coordinates, Vertex vertex) {
+        CityRecordProperty cityRecordProperty = new CityRecordProperty(city, coordinates, new HashMap<>());
+
     }
     public void setVertex(String vertices, String codVertices) {
         this.vertices.put(vertices, codVertices);
     }
 
     public String getCoordinates() {
-        return codernadas;
+
+        return coordinates;
+
     }
 
 
@@ -29,16 +32,15 @@ public class City {
 
     @Override
     public String toString() {
-        StringBuilder strings = new StringBuilder()
+        StringBuilder message = new StringBuilder()
                 .append("City{")
                 .append("city='")
                 .append(city)
                 .append("', codernadas='")
-                .append(codernadas)
+                .append(coordinates)
                 .append("', vertices=")
                 .append(vertices);
 
-        return strings.toString();
-
+        return message.toString();
     }
 }

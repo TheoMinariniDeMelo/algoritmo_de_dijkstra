@@ -1,7 +1,7 @@
 package org.example.services;
 
 import org.example.cities.City;
-import org.example.vertice.Vertice;
+import org.example.vertex.Vertex;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class ValidateVerticesOfCity {
     public List<Double> getCoordinatesVertex(){
         return coordinatesVertex;
     }
-    public void validate(@NotNull List<City> cities, Vertice vertice) {
+    public void validate(@NotNull List<City> cities, Vertex vertice) {
         cities.forEach(x -> {
             coordinatesVertex.add(vertice.selectVertex(
                     parseCoordinates(x.getCoordinates()),

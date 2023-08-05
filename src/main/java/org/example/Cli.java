@@ -30,24 +30,22 @@ public class Cli {
                 Integer vertexQuantity = scanner.nextInt();
 
                 scanner.nextLine();
+                System.out.printf("%n Add coordinates (x,y) ");
+                String coordinate = scanner.next();
+                    if (!validateCoordinates.validate(coordinate)) {
+                        System.out.printf("%s%nEscreva as cordenadas no formato: (X,Y)", Status.ERROR);
+                        cityIndex--;
+                        continue;
+                    }
 
-                System.out.printf("%n Add coordinates (x, y) ");
-                String coordinate = scanner.nextLine();
 
-                if(validateCoordinates.validate(coordinate)){
-                    System.out.printf("%s", validateCoordinates.validate(coordinate));
-                    return;
-                }
 
                 cities.put(city, vertexQuantity);
 
                 cities.forEach((name, i) -> {
                     List<String[]> vertices = new ArrayList<String[]>();
 
-                    String[] info = {
-                            name,
-                            coordinate
-                    };
+                    String[] info = {name, coordinate};
 
                     vertices.add(info);
 
