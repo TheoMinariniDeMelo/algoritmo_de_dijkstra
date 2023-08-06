@@ -29,7 +29,7 @@ public class Cli {
                 validInput = true;
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid integer.");
-                scanner.nextLine(); // Limpa o buffer do scanner
+                scanner.nextLine(); // Limp the buffer of scanner
             }
         } while (!validInput);
 
