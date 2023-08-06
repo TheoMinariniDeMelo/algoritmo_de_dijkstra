@@ -29,11 +29,30 @@ public class Cli {
                 validInput = true;
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid integer.");
-                scanner.nextLine(); // Limp the buffer of scanner
+
+                scanner.nextLine();
             }
         } while (!validInput);
 
         return number;
+    }
+
+    private String checkValidCoordinate(String field){
+        boolean validCoordinate;
+        System.out.print(field);
+        String coordinate = scanner.next();
+
+        do {
+            validCoordinate = true;
+
+            if(!validateCoordinates.validation(coordinate)){
+                System.out.print("Invalid input. " + field);
+                coordinate = scanner.next();
+                validCoordinate = false;
+            }
+        }while(!validCoordinate);
+
+        return coordinate;
     }
 
     private void setQuestions(int citiesQuantity) {
@@ -44,21 +63,18 @@ public class Cli {
                 System.out.printf("add city %d: ", (state));
                 String city = scanner.next();
 
-                System.out.println("Add coordinates (x,y): ");
-                String coordinate = scanner.next();
+                String coordinate = checkValidCoordinate("Add city coordinate (X,Y): ");
 
-                System.out.println("Add number of vertices: ");
+                System.out.print("Add number of vertices: ");
                 int vertexQuantity = scanner.nextInt();
 
                 List<String[]> vertexList = new ArrayList<>();
 
                 for (int vertexIndex = 0; vertexIndex < vertexQuantity; vertexIndex++) {
-                    System.out.println("Add vertex name: ");
+                    System.out.print("Add vertex name: ");
                     String name = scanner.next();
 
-                    System.out.println("add coordinate (X,Y): ");
-
-                    String vertexCoordinate = scanner.next();
+                    String vertexCoordinate = checkValidCoordinate("Add vertex coordinate (X,Y): ");
 
                     String[] vertexInfos = {
                             name,
@@ -70,7 +86,9 @@ public class Cli {
 
                 cities.add(city);
 
-                cities.forEach((name) -> dijkstra.setCity(name, coordinate, vertexList));
+                final String finalCoordinate = coordinate;
+
+                cities.forEach((name) -> dijkstra.setCity(name, finalCoordinate, vertexList));
 
                 System.out.printf("%n%s%n", Status.PROCESSING);
             } catch (InputMismatchException error) {

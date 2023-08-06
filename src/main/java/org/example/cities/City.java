@@ -20,7 +20,7 @@ public class City {
         this.vertices.put(vertices, codVertices);
     }
 
-    public String getCoordinates() {
+    public @NotNull String getCoordinates() {
         return coordinates;
     }
 
